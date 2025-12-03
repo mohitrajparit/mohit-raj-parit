@@ -7,19 +7,22 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "vite dev"
   },
   "dependencies": {
     "@emailjs/browser": "^4.1.0",
     "@heroicons/react": "^2.1.1",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.4.2",
     "@reduxjs/toolkit": "^2.3.0",
     "animated-backgrounds": "^1.1.0",
     "emailjs": "^4.0.3",
     "framer-motion": "^11.18.0",
     "lottie-react": "^2.4.0",
     "lottie-web": "^5.12.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-icon": "^1.0.0",
     "react-icons": "^5.0.1",
     "react-lottie": "^1.2.4",
@@ -42,7 +45,7 @@
     "eslint-plugin-react-refresh": "^0.4.5",
     "postcss": "^8.4.33",
     "tailwindcss": "^3.4.1",
-    "vite": "^5.0.8"
+    "vite": "^7.2.6"
   },
   "engines": {
     "node": ">=20"
