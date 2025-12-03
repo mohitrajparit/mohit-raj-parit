@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleNav, selectNavOpen } from '../features/navbarSlice';
 import { FaBars, FaTimes, FaGithub, FaLinkedin } from 'react-icons/fa';
