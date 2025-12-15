@@ -25,9 +25,15 @@
     --bg-gradient-to: #ffffff;
     --card-gradient-from: #f8fafc;
     --card-gradient-to: #ffffff;
-    --text-primary: #0a192f; /* dark text for light mode */
-    --muted: #475569;
-    --accent: #16a34a;
+    --text-primary: #000000; /* darker text for light mode */
+    --muted: #1f2937; /* darker muted text */
+}
+
+/* Light mode text color overrides */
+.light .text-gray-300,
+.light .text-gray-400,
+.light .text-gray-500 {
+    color: #000000 !important;
 }
 
 @layer base {
@@ -38,7 +44,7 @@
     }
     li {
         @apply px-4;
-        @apply cursor-pointer
+        @apply cursor-pointer;
     }
 }
 

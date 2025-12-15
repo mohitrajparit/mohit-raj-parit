@@ -2,23 +2,21 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleNav, selectNavOpen } from '../features/navbarSlice';
 import { FaBars, FaTimes, FaGithub, FaLinkedin } from 'react-icons/fa';
-import { HiOutlineMail, HiSun, HiMoon } from 'react-icons/hi';
+import { HiOutlineMail } from 'react-icons/hi';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 const Navbar = () => {
   const dispatch = useDispatch();
   const navOpen = useSelector(selectNavOpen);
   const email = '2004mohitraj@gmail.com';
 
   const handleClick = () => dispatch(toggleNav());
-  const [isLight, setIsLight] = useState(false);
 
   useEffect(() => {
     const t = localStorage.getItem('theme');
     if (t === 'light') {
       document.documentElement.classList.add('light');
-      setIsLight(true);
     }
   }, []);
 
@@ -27,11 +25,9 @@ const Navbar = () => {
     if (root.classList.contains('light')) {
       root.classList.remove('light');
       localStorage.setItem('theme', 'dark');
-      setIsLight(false);
     } else {
       root.classList.add('light');
       localStorage.setItem('theme', 'light');
-      setIsLight(true);
     }
   };
 
@@ -41,30 +37,35 @@ const Navbar = () => {
         <img  />
       </div>
 
-      {/* Theme toggle */}
-      <div className='hidden md:flex items-center gap-2 mr-4'>
-        <button onClick={toggleTheme} aria-label='Toggle theme' className='p-2 rounded-full bg-transparent hover:bg-gray-700/20'>
-          {isLight ? <HiSun size={20} /> : <HiMoon size={20} />}
-        </button>
-      </div>
-
-      {/* Desktop Menu */}
-      <ul className='hidden md:flex'>
+      {/* Desktop Menu with Theme Toggle */}
+      <ul className='hidden md:flex items-center gap-8'>
   {['Home', 'About', 'Skills', 'Work', 'Contact'].map((text, index) => (
     <motion.li
       key={text}
       className='hover:animate-pulse hover:text-green-600'
-      initial={{ opacity: 0, x: -20 }} // Start from left with opacity 0
-      animate={{ opacity: 1, x: 0 }}  // Animate to normal position
-      exit={{ opacity: 0, x: 20 }}    // Exit by moving right with opacity 0
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 20 }}
       transition={{
-        delay: index * 0.1, // Add delay for staggered effect
+        delay: index * 0.1,
         duration: 0.4
       }}
     >
       <a href={`/${text.toLowerCase()}`} className='text-lg'>{text}</a>
     </motion.li>
   ))}
+  <motion.li
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.95 }}
+  >
+    <button
+      onClick={toggleTheme}
+      aria-label='Toggle theme'
+      className='p-2 rounded-lg bg-gradient-to-r from-green-500 to-green-600 hover:shadow-lg hover:shadow-green-500/50 transition-all duration-300 text-white'
+    >
+      {document.documentElement.classList.contains('light') ? '🌙' : '☀️'}
+    </button>
+  </motion.li>
 </ul>
 
       {/* Hamburger Icon */}
@@ -87,7 +88,7 @@ const Navbar = () => {
       </ul>
 
       {/* Social Icons */}
-      <div className='hidden lg:flex fixed flex-col top-[40%] left-0 z-40'>
+      <div className='hidden lg:flex fixed flex-col top-[200px] left-4 z-40'>
   <ul>
     <motion.li 
         className='w-[160px] h-[60px] flex justify-between items-center ml-[-110px] hover:ml-[-10px] duration-300 bg-gradient-to-r from-black to-gray-800 rounded-r-lg shadow-lg shadow-black/50'
