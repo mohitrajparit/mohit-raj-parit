@@ -2,20 +2,50 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleNav, selectNavOpen } from '../features/navbarSlice';
 import { FaBars, FaTimes, FaGithub, FaLinkedin } from 'react-icons/fa';
-import { HiOutlineMail } from 'react-icons/hi';
+import { HiOutlineMail, HiSun, HiMoon } from 'react-icons/hi';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 const Navbar = () => {
   const dispatch = useDispatch();
   const navOpen = useSelector(selectNavOpen);
   const email = '2004mohitraj@gmail.com';
 
   const handleClick = () => dispatch(toggleNav());
+  const [isLight, setIsLight] = useState(false);
+
+  useEffect(() => {
+    const t = localStorage.getItem('theme');
+    if (t === 'light') {
+      document.documentElement.classList.add('light');
+      setIsLight(true);
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const root = document.documentElement;
+    if (root.classList.contains('light')) {
+      root.classList.remove('light');
+      localStorage.setItem('theme', 'dark');
+      setIsLight(false);
+    } else {
+      root.classList.add('light');
+      localStorage.setItem('theme', 'light');
+      setIsLight(true);
+    }
+  };
 
   return (
-    <div className='fixed w-full h-[80px] flex justify-between items-center px-4 bg-gradient-to-r from-[#0a192f] via-[#1a2749] to-[#0a192f] backdrop-blur-md border-b border-green-500 border-opacity-30 text-gray-300 z-50 shadow-lg shadow-green-500/20'>
+    <div className='fixed w-full h-[80px] flex justify-between items-center px-4 bg-gradient-primary backdrop-blur-md border-b border-green-500 border-opacity-30 text-gray-300 z-50 shadow-lg shadow-green-500/20'>
       <div>
         <img  />
+      </div>
+
+      {/* Theme toggle */}
+      <div className='hidden md:flex items-center gap-2 mr-4'>
+        <button onClick={toggleTheme} aria-label='Toggle theme' className='p-2 rounded-full bg-transparent hover:bg-gray-700/20'>
+          {isLight ? <HiSun size={20} /> : <HiMoon size={20} />}
+        </button>
       </div>
 
       {/* Desktop Menu */}
@@ -43,7 +73,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <ul className={!navOpen ? 'hidden' : 'absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-[#0a192f] via-[#1a2749] to-[#0a192f] flex flex-col justify-center items-center backdrop-blur-lg'}>
+      <ul className={!navOpen ? 'hidden' : 'absolute top-0 left-0 w-full h-screen bg-gradient-primary flex flex-col justify-center items-center backdrop-blur-lg'}>
         {['Home', 'About', 'Skills', 'Work', 'Contact'].map((text) => (
           <motion.li 
             key={text} 
@@ -57,11 +87,11 @@ const Navbar = () => {
       </ul>
 
       {/* Social Icons */}
-      <div className='hidden lg:flex fixed flex-col top-[280%] left-4 z-40'>
+      <div className='hidden lg:flex fixed flex-col top-[40%] left-0 z-40'>
   <ul>
     <motion.li 
-      className='w-[160px] h-[60px] flex justify-between items-center ml-[-110px] hover:ml-[-10px] duration-300 bg-gradient-to-r from-blue-600 to-blue-500 rounded-r-lg shadow-lg shadow-blue-500/50'
-      whileHover={{ boxShadow: '0 0 20px rgba(59, 130, 246, 0.8)' }}
+        className='w-[160px] h-[60px] flex justify-between items-center ml-[-110px] hover:ml-[-10px] duration-300 bg-gradient-to-r from-black to-gray-800 rounded-r-lg shadow-lg shadow-black/50'
+        whileHover={{ boxShadow: '0 0 20px rgba(0, 0, 0, 0.8)' }}
     >
       <a 
         className='flex justify-between items-center w-full text-white px-4' 

@@ -7,7 +7,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-gradient-to-r from-[#0a192f] via-[#1a2749] to-[#0a192f] text-white p-8 text-center mt-10">
+    <footer className="bg-gradient-primary text-white p-8 text-center mt-10">
       <motion.div
         className='max-w-[1000px] mx-auto'
         initial={{ opacity: 0, y: 20 }}

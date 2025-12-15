@@ -10,7 +10,7 @@ const Work = () => {
     <>
       <Navbar />
 
-      <div name='work' className='w-full h-max bg-gradient-to-b from-[#0a192f] via-[#1a2749] to-[#0a192f]'>
+      <div name='work' className='w-full h-max bg-gradient-primary'>
         <div className='max-w-[1000px] mx-auto p-4'>
           <motion.div 
             className='mt-24'
@@ -47,7 +47,7 @@ const Work = () => {
             ].map((project) => (
               <motion.div
                 key={project.title}
-                className='w-full pb-4 shadow-lg shadow-green-500/20 hover:shadow-green-500/50 duration-300 rounded-lg bg-gradient-to-br from-[#1a2749] to-[#0a192f] border border-green-500 border-opacity-20 hover:border-opacity-100 transition-all overflow-hidden'
+                className='w-full pb-4 shadow-lg shadow-green-500/20 hover:shadow-green-500/50 duration-300 rounded-lg bg-card-gradient border border-green-500 border-opacity-20 hover:border-opacity-100 transition-all overflow-hidden'
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },

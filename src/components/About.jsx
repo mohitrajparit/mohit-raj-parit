@@ -11,7 +11,7 @@ const About = () => {
   return (
     <>
       <Navbar />
-      <div className='flex flex-col justify-center items-center bg-gradient-to-b from-[#0a192f] via-[#1a2749] to-[#0a192f] pt-20 '>
+      <div className='flex flex-col justify-center items-center bg-gradient-primary pt-20 '>
         <motion.img
           src={Profile}
           width={200}
@@ -22,7 +22,7 @@ const About = () => {
           transition={{ duration: 1, ease: "easeOut" }}
         />
       </div>
-      <div name='about' className='w-full h-screen bg-gradient-to-b from-[#0a192f] via-[#1a2749] to-[#0a192f] text-gray-300'>
+      <div name='about' className='w-full h-screen bg-gradient-primary text-gray-300'>
         <div className='flex flex-col items-center w-full h-full'>
           <div className='max-w-[1000px] w-full grid grid-cols-2 gap-8'>
             <motion.span

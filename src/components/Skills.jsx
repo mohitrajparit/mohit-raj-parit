@@ -43,7 +43,7 @@ const Skills = () => {
   return (
     <>
       <Navbar />
-      <div name='skills' className='w-full h-full bg-gradient-to-b from-[#0a192f] via-[#1a2749] to-[#0a192f] text-gray-300'>
+      <div name='skills' className='w-full h-full bg-gradient-primary text-gray-300'>
         <div className='max-w-[1000px] mx-auto p-4'>
           <motion.div 
             className='mt-24'
@@ -82,7 +82,7 @@ const Skills = () => {
             ].map((tech) => (
               <motion.div
                 key={tech.name}
-                className='shadow-lg shadow-green-500/20 hover:shadow-green-500/50 hover:scale-110 duration-300 p-4 rounded-lg bg-gradient-to-br from-[#1a2749] to-[#0a192f] border border-green-500 border-opacity-20 hover:border-opacity-100 transition-all'
+                className='shadow-lg shadow-green-500/20 hover:shadow-green-500/50 hover:scale-110 duration-300 p-4 rounded-lg bg-card-gradient border border-green-500 border-opacity-20 hover:border-opacity-100 transition-all'
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
               >

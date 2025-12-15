@@ -26,7 +26,7 @@ const Contact = () => {
     return (
       <>
       <Navbar/>
-      <div name='contact' className='w-full h-screen bg-[#0a192f] flex justify-center items-center p-4'>
+      <div name='contact' className='w-full h-screen bg-primary flex justify-center items-center p-4'>
         {sent? <SuccessContact/>:<form ref={formm} onSubmit={sendEmail} className='flex flex-col max-w-[600px] w-full' >
           <div className='pb-8 mt-40'>
   <p className='text-4xl font-bold inline-block border-b-4 border-pink-600 text-gray-300'>Contact</p>
@@ -43,7 +43,7 @@ const Contact = () => {
           </form>}
         
       </div>
-      <div className='w-full h-40 bg-[#0a192f]'></div>
+      <div className='w-full h-40 bg-primary'></div>
       </>
 
     )

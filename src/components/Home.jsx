@@ -16,13 +16,13 @@ const Home = () => {
   const navOpen = useSelector(selectNavOpen);
 
   return (
-    <div className='bg-gradient-to-b from-[#0a192f] via-[#1a2749] to-[#0a192f]'>
+    <div className='bg-gradient-primary'>
       <Navbar />
       <div className='w-full sm:w-14 hidden sm:flex justify-center' style={{ backgroundColor: 'transparent' }}>
         <Lottie animationData={Animation} loop={true} />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:ml-16 bg-gradient-to-b from-[#0a192f] via-[#1a2749] to-[#0a192f]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:ml-16 bg-gradient-primary">
         <div name='home' className='h-screen bg-transparent'>
           <div className='max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full'>
             <motion.p 
@@ -34,7 +34,7 @@ const Home = () => {
               Hi, my name is
             </motion.p>
             <motion.h1 
-              className='text-4xl sm:text-7xl font-bold text-[#ccd6f6] mt-4'
+              className='text-4xl sm:text-7xl font-bold text-primary mt-4'
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -42,7 +42,7 @@ const Home = () => {
               Mohit Raj Parit
             </motion.h1>
             <motion.h2 
-              className='text-1xl py-4 sm:text-[1.35rem] font-bold text-[#8892b0]'
+              className='text-1xl py-4 sm:text-[1.35rem] font-bold muted'
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -63,7 +63,7 @@ const Home = () => {
               )}
             </motion.h2>
             <motion.p 
-              className='text-[#8892b0] text-[1.20rem] py-4 max-w-[700px]'
+              className='muted text-[1.20rem] py-4 max-w-[700px]'
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}

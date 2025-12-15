@@ -13,7 +13,7 @@ function App() {
   const location = useLocation();
 
   return (
-    <div className="bg-[#0a192f]">
+    <div className="bg-primary">
       <Navbar />
 
       {/* Main content area with framer motion transition */}
